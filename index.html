@@ -4,44 +4,43 @@
     <title>Hello, WebVR! - A-Frame</title>
     <meta name="description" content="Hello, WebVR! - A-Frame">
     <script src="js/aframe-v0.7.1.min.js"></script>
-  </head>
+    <script >
+      // var envMap = null;
 
-  <script >
-    var envMap = null;
+      //   AFRAME.registerComponent('gltf_envmap', {
+      //     init: function () {
+      //       console.log("!!!! yes" + THREE);
+      //       var scene = this.el.sceneEl.object3D;  // THREE.Scene
 
-      AFRAME.registerComponent('gltf_envmap', {
-        init: function () {
-          console.log("!!!! yes" + THREE);
-          var scene = this.el.sceneEl.object3D;  // THREE.Scene
+      //       envMap = getEnvMap();
+      //       // scene.traverse( function( node ) {
+      //       //     if ( node.material && ( node.material.isMeshStandardMaterial ||
+      //       //         ( node.material.isShaderMaterial && node.material.envMap !== undefined ) ) ) {
+      //       //       node.material.envMap = envMap;
+      //       //       node.material.needsUpdate = true;
+      //       //     }
+      //       //   });
+      //     }
+      //   });
 
-          envMap = getEnvMap();
-          // scene.traverse( function( node ) {
-          //     if ( node.material && ( node.material.isMeshStandardMaterial ||
-          //         ( node.material.isShaderMaterial && node.material.envMap !== undefined ) ) ) {
-          //       node.material.envMap = envMap;
-          //       node.material.needsUpdate = true;
-          //     }
-          //   });
-        }
-      });
-
-			function getEnvMap() {
-				if ( envMap ) {
-					return envMap;
-				}
-        
-				var path = 'textures/cube/bridge/';
-				var format = '.jpg';
-				var urls = [
-					path + 'posx' + format, path + 'negx' + format,
-					path + 'posy' + format, path + 'negy' + format,
-					path + 'posz' + format, path + 'negz' + format
-				];
-				envMap = new THREE.CubeTextureLoader().load( urls );
-				envMap.format = THREE.RGBFormat;
-				return envMap;
-			}
-  </script>
+      // 	function getEnvMap() {
+      // 		if ( envMap ) {
+      // 			return envMap;
+      // 		}
+          
+      // 		var path = 'textures/cube/bridge/';
+      // 		var format = '.jpg';
+      // 		var urls = [
+      // 			path + 'posx' + format, path + 'negx' + format,
+      // 			path + 'posy' + format, path + 'negy' + format,
+      // 			path + 'posz' + format, path + 'negz' + format
+      // 		];
+      // 		envMap = new THREE.CubeTextureLoader().load( urls );
+      // 		envMap.format = THREE.RGBFormat;
+      // 		return envMap;
+      // 	}
+    </script>
+    </head>
 
   <body>
       <!-- <a-scene stats> -->
@@ -50,7 +49,7 @@
       <!-- skull from here: https://sketchfab.com/models/1a9db900738d44298b0bc59f68123393 -->
       <a-assets timeout="10000">
           <a-asset-item id="skull" src="assets/gltf/skull_downloadable/scene.gltf"></a-asset-item>
-          <a-asset-item id="skull-blender" src="assets/gltf/Skull_Blender_SG/untitled.gltf"></a-asset-item>
+          <a-asset-item id="skull-blender" src="assets/gltf/Skull_Blender/untitled.gltf"></a-asset-item>
           <a-asset-item id="skull-obj" src="assets/models/craneo.OBJ"></a-asset-item>
           <img id="skull-diffuse" src="assets/textures/skull_diffuse_UD.jpg">
           <img id="skull-normal" src="assets/textures/skull_normal_UD.jpg">
@@ -87,15 +86,5 @@
         material="shader: flat; side: back; height: 2048; src: #skymap; width: 2048"
 ></a-entity>
 
-    <script src="js/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
   </body>
 </html>
