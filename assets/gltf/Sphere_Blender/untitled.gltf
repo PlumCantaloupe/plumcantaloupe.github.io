@@ -1,0 +1,209 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0, 
+            "componentType" : 5123, 
+            "count" : 2880, 
+            "max" : [
+                1983
+            ], 
+            "min" : [
+                0
+            ], 
+            "type" : "SCALAR"
+        }, 
+        {
+            "bufferView" : 1, 
+            "componentType" : 5126, 
+            "count" : 1984, 
+            "max" : [
+                0.9939864873886108, 
+                1.0, 
+                1.0000003576278687
+            ], 
+            "min" : [
+                -0.9939857721328735, 
+                -1.0, 
+                -0.9999991655349731
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 2, 
+            "componentType" : 5126, 
+            "count" : 1984, 
+            "max" : [
+                0.9931854605674744, 
+                0.99513840675354, 
+                0.9904382824897766
+            ], 
+            "min" : [
+                -0.9931856393814087, 
+                -0.99513840675354, 
+                -0.9904292225837708
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 3, 
+            "componentType" : 5126, 
+            "count" : 1984, 
+            "max" : [
+                1.0, 
+                0.7573772668838501, 
+                0.9373995661735535, 
+                1.0
+            ], 
+            "min" : [
+                0.01956457830965519, 
+                -0.7327775955200195, 
+                -0.9362612366676331, 
+                1.0
+            ], 
+            "type" : "VEC4"
+        }, 
+        {
+            "bufferView" : 4, 
+            "componentType" : 5126, 
+            "count" : 1984, 
+            "max" : [
+                0.999906599521637, 
+                1.0
+            ], 
+            "min" : [
+                0.0, 
+                0.12610530853271484
+            ], 
+            "type" : "VEC2"
+        }
+    ], 
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter", 
+        "version" : "2.0"
+    }, 
+    "bufferViews" : [
+        {
+            "buffer" : 0, 
+            "byteLength" : 5760, 
+            "byteOffset" : 0, 
+            "target" : 34963
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 23808, 
+            "byteOffset" : 5760, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 23808, 
+            "byteOffset" : 29568, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 31744, 
+            "byteOffset" : 53376, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 15872, 
+            "byteOffset" : 85120, 
+            "target" : 34962
+        }
+    ], 
+    "buffers" : [
+        {
+            "byteLength" : 100992, 
+            "uri" : "untitled.bin"
+        }
+    ], 
+    "extensionsRequired" : [
+        "KHR_materials_pbrSpecularGlossiness"
+    ], 
+    "extensionsUsed" : [
+        "KHR_materials_pbrSpecularGlossiness"
+    ], 
+    "images" : [
+        {
+            "uri" : "SunnyWheat.png"
+        }, 
+        {
+            "uri" : "skull_normal_UD.png"
+        }, 
+        {
+            "uri" : "skull_specGloss_UD.png"
+        }
+    ], 
+    "materials" : [
+        {
+            "extensions" : {
+                "KHR_materials_pbrSpecularGlossiness" : {
+                    "diffuseTexture" : {
+                        "index" : 0
+                    }
+                }
+            }, 
+            "name" : "Material", 
+            "normalTexture" : {
+                "index" : 1
+            }
+        }
+    ], 
+    "meshes" : [
+        {
+            "name" : "Sphere", 
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2, 
+                        "POSITION" : 1, 
+                        "TANGENT" : 3, 
+                        "TEXCOORD_0" : 4
+                    }, 
+                    "indices" : 0, 
+                    "material" : 0
+                }
+            ]
+        }
+    ], 
+    "nodes" : [
+        {
+            "mesh" : 0, 
+            "name" : "Sphere", 
+            "rotation" : [
+                1.0, 
+                0.0, 
+                -0.0, 
+                -7.549790126404332e-08
+            ]
+        }
+    ], 
+    "samplers" : [
+        {}
+    ], 
+    "scene" : 0, 
+    "scenes" : [
+        {
+            "name" : "Scene", 
+            "nodes" : [
+                0
+            ]
+        }
+    ], 
+    "textures" : [
+        {
+            "sampler" : 0, 
+            "source" : 0
+        }, 
+        {
+            "sampler" : 0, 
+            "source" : 1
+        }, 
+        {
+            "sampler" : 0, 
+            "source" : 2
+        }
+    ]
+}
