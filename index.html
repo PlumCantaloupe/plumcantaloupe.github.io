@@ -1,1 +1,93 @@
-hello World
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="js/aframe-v0.7.1.min.js"></script>
+  </head>
+
+  <script >
+    var envMap = null;
+
+      AFRAME.registerComponent('gltf_envmap', {
+        init: function () {
+          console.log("!!!! yes" + THREE);
+          var scene = this.el.sceneEl.object3D;  // THREE.Scene
+
+          envMap = getEnvMap();
+          // scene.traverse( function( node ) {
+          //     if ( node.material && ( node.material.isMeshStandardMaterial ||
+          //         ( node.material.isShaderMaterial && node.material.envMap !== undefined ) ) ) {
+          //       node.material.envMap = envMap;
+          //       node.material.needsUpdate = true;
+          //     }
+          //   });
+        }
+      });
+
+			function getEnvMap() {
+				if ( envMap ) {
+					return envMap;
+				}
+        
+				var path = 'textures/cube/bridge/';
+				var format = '.jpg';
+				var urls = [
+					path + 'posx' + format, path + 'negx' + format,
+					path + 'posy' + format, path + 'negy' + format,
+					path + 'posz' + format, path + 'negz' + format
+				];
+				envMap = new THREE.CubeTextureLoader().load( urls );
+				envMap.format = THREE.RGBFormat;
+				return envMap;
+			}
+  </script>
+
+  <body>
+      <!-- <a-scene stats> -->
+    <a-scene shadow="type: basic;">
+
+      <!-- skull from here: https://sketchfab.com/models/1a9db900738d44298b0bc59f68123393 -->
+      <a-assets timeout="10000">
+          <a-asset-item id="skull" src="assets/gltf/skull_downloadable/scene.gltf"></a-asset-item>
+          <a-asset-item id="skull-blender" src="assets/gltf/Skull_Blender_SG/untitled.gltf"></a-asset-item>
+          <a-asset-item id="skull-obj" src="assets/models/craneo.OBJ"></a-asset-item>
+          <img id="skull-diffuse" src="assets/textures/skull_diffuse_UD.jpg">
+          <img id="skull-normal" src="assets/textures/skull_normal_UD.jpg">
+          <img id="skull-specGloss" src="assets/textures/skull_specGloss_UD.jpg">
+          <img id="skymap" src="assets/textures/equirectangular/Clouds.png">
+          <!-- <a-cubemap id="sky">
+              <img src="right.png">
+              <img src="left.png">
+              <img src="top.png">
+              <img src="bottom.png">
+              <img src="front.png">
+              <img src="back.png">
+          </a-cubemap> -->
+      </a-assets>
+
+      <a-entity light="type:directional; castShadow:true; intensity:0.4; shadowCameraBias:0.01; shadowCameraVisible:true; shadowMapWidth:1024; shadowMapHeight:1024;" position="1.285 1 1"></a-entity>
+      <a-entity light="type: ambient; intensity: 0.5;"></a-entity>
+
+      <a-gltf-model src="#skull" position="2 1.5 -4" shadow="cast:true; receive:true;"></a-gltf-model>
+      <a-gltf-model src="#skull-blender" position="0 1.5 -4" shadow="cast:true; receive:true;"></a-gltf-model>
+      <a-entity obj-model="obj:#skull-obj;" position="-2 1.5 -4" material="color:#fff; src:#skull-diffuse; normalMap:#skull-normal; sphericalEnvMap:#skymap; roughness:0.8; metalness:1.0;" shadow="cast:true; receive:true;"></a-entity>
+
+      <a-circle id="ground0" position="0 0 -4" radius="2" rotation="-90 0 0" shadow="receive:true;" color="#ff0000"></a-circle>
+      <a-circle id="ground1" position="0 -0.05 -4" radius="2" rotation="90 0 0" shadow="cast:true;"></a-circle>
+
+      <a-circle id="ground2" position="0 -0.5 -4" radius="4" rotation="-90 0 0" shadow="receive:true;" color="#00FF00"></a-circle>
+      <a-circle id="ground3" position="0 -0.55 -4" radius="4" rotation="90 0 0" shadow="cast:true;"></a-circle>
+
+      <a-circle id="ground4" position="0 -1 -4" radius="6" rotation="-90 0 0" shadow="receive:true;" color="#0000FF"></a-circle>
+      <a-circle id="ground5" position="0 -1.05 -4" radius="6" rotation="90 0 0" shadow="cast:true;"></a-circle>
+
+      <a-entity id="sky"
+        geometry="primitive: sphere; radius: 500;"
+        material="shader: flat; side: back; height: 2048; src: #skymap; width: 2048"
+></a-entity>
+
+      <a-entity gltf_envmap></a-entity>
+    </a-scene>
+  </body>
+</html>
